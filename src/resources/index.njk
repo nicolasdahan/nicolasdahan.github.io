@@ -1,0 +1,14 @@
+---
+layout: base.njk
+title: Resources, Nicolas Dahan
+description: "Code and data from Nicolas Dahan: TermJudge, BioMQM-Terms, the MetaDocEval test set and Concordancer."
+permalink: /resources/
+---
+{%- set d = data %}
+<h1 class="page">Resources</h1>
+{% for r in d.resources %}{% set p = (d.pubs | pubBy(r.cite)) if r.cite %}
+<section class="it" id="{{ r.name | slugify }}"><h2 class="pt"><a href="{{ r.repo }}">{{ r.name }}</a></h2>
+<p>{{ r.what }}</p><p class="use">{{ r.use }}</p>
+<dl class="fx"><dt>Repository</dt><dd><a href="{{ r.repo }}">{{ r.repo.replace('https://', '') }}</a></dd><dt>Licence</dt><dd>{{ r.license }}</dd>{% if p %}<dt>Cite</dt><dd><a href="/publications/#{{ p.key }}">{{ p.short }}, {{ p.venue }}</a></dd>{% endif %}</dl>
+{% if p %}<div class="wl"><button type="button" class="tg" aria-expanded="false" aria-controls="{{ r.name | slugify }}-bibtex">BibTeX</button></div><div class="ops"><div class="opn bio" id="{{ r.name | slugify }}-bibtex"><p class="oh">BibTeX</p><pre>{{ p.bibtex }}</pre><button type="button" class="cp" data-copy>Copy BibTeX</button></div></div>{% endif %}
+</section>{% endfor %}

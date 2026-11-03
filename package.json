@@ -1,0 +1,20 @@
+{
+  "name": "nicolasdahan.github.io",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "rm -rf _site && node scripts/prepare.mjs && eleventy && node scripts/cv-pdf.mjs",
+    "check": "node scripts/check.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.7",
+    "@retorquere/bibtex-parser": "13.0.5",
+    "js-yaml": "^4.1.0",
+    "playwright-core": "^1.50.0",
+    "sharp": "^0.34.0"
+  }
+}

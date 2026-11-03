@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: Thesis, Nicolas Dahan
+description: PhD thesis of Nicolas Dahan, Automatic Evaluation of the Machine Translation of Scientific Documents, Sorbonne Université.
+permalink: /thesis/
+---
+{%- set d = data %}{% set t = d.site.thesis %}
+<h1 class="page">{{ t.title_en }}</h1>
+<p class="tfr" lang="fr">{{ t.title_fr }}</p>
+{% if t.date %}<p class="st">{% if d.site.defended %}Defended on {{ t.date }}{% else %}Defence on {{ t.date }}{% endif %}{% if t.time %}, {{ t.time }}{% endif %}{% if t.place %}, {{ t.place }}{% endif %}.</p>{% endif %}
+{% if t.pdf_url %}<p class="more"><a href="{{ t.pdf_url }}">Read the thesis (PDF)</a></p>{% endif %}
+<dl class="fx">
+<dt>Discipline</dt><dd>{{ t.discipline }}</dd>
+<dt>University</dt><dd>{{ t.university }}</dd>
+<dt>Doctoral school</dt><dd lang="fr">{{ t.doctoral_school }}</dd>
+<dt>Laboratories</dt><dd>Inria Paris (ALMAnaCH team) and ISIR at Sorbonne Université (MLIA team)</dd>
+<dt>Funding</dt><dd>{{ t.funding }}</dd>
+</dl>
+<section class="sec"><h2>Supervision</h2><ul class="pp">{% for s in t.supervisors %}<li><a href="{{ s.url }}">{{ s.name }}</a><span lang="fr">{{ s.title }}</span></li>{% endfor %}</ul></section>
+{% if t.jury %}<section class="sec"><h2>Jury</h2><ul class="pp">{% for j in t.jury %}<li><b>{{ j.name }}</b><span lang="fr">{{ j.title }}. {{ j.role }}</span></li>{% endfor %}</ul></section>{% endif %}
+<section class="sec"><h2>Contributions</h2><ul class="ctb">{% for c in t.contributions %}{% set p = d.pubs | pubBy(c.key) %}<li><a href="/publications/#{{ p.key }}">{{ p.short }}</a> ({{ p.venue }}) {{ c.text }}</li>{% endfor %}</ul></section>
+<section class="sec" id="abstract"><h2>Abstract</h2><div class="txt">{% for x in d.abstract %}<p>{{ x }}</p>{% endfor %}</div></section>
+{% if d.site.frOn %}<section class="sec" id="resume" lang="fr"><h2>Résumé</h2><div class="txt">{% for x in d.fr.abstract %}<p>{{ x | frnbsp }}</p>{% endfor %}</div></section>{% endif %}

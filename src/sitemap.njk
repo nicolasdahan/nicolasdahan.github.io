@@ -1,0 +1,6 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{% for u in ['/', '/publications/', '/news/', '/thesis/', '/resources/', '/talks/', '/cv/'] %}<url><loc>{{ data.site.url }}{{ u }}</loc>{% if data.site.updated %}<lastmod>{{ data.site.updated }}</lastmod>{% endif %}</url>{% endfor %}{% if data.site.frOn %}<url><loc>{{ data.site.url }}/fr/</loc></url>{% endif %}</urlset>

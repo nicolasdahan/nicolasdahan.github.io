@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: Nicolas Dahan
+---
+{%- from "macros.njk" import entry, links, photo, timeline, newsList %}
+{%- set d = data %}
+<div class="hr{% if not d.photo %} hr0{% endif %}">{{ photo(d) }}<div><h1>Nicolas Dahan</h1><p>{{ 'I was' if d.site.defended else 'I am' }} a PhD candidate {{ d.site.bio_affiliation | safe }} {{ d.site.bio_before_phd }}</p><p class="st">{{ d.site.status }}</p>{{ links(d) }}</div></div>
+<div class="tabs" role="tablist" aria-label="Sections"><button type="button" role="tab" id="tb0" aria-controls="publications" aria-selected="true">Publications</button><button type="button" role="tab" id="tb1" aria-controls="news" aria-selected="false">News</button><button type="button" role="tab" id="tb2" aria-controls="background" aria-selected="false">Background</button></div>
+<div class="pn">
+<section class="pa" id="publications" role="tabpanel" aria-labelledby="tb0" tabindex="0"><h2>Publications</h2>
+{%- for p in d.pubs %}{% if p.selected %}{{ entry(p, 'h3') }}{% endif %}{% endfor %}
+<p class="more"><a href="/publications/">All publications, filters and full .bib</a></p></section>
+<section class="pa" id="news" role="tabpanel" aria-labelledby="tb1" tabindex="0"><h2>News</h2>{{ newsList(d, 6, '') }}<p class="more"><a href="/news/">All news</a> <a href="/feed.xml">RSS</a></p></section>
+<section class="pa" id="background" role="tabpanel" aria-labelledby="tb2" tabindex="0"><h2>Background</h2>{{ timeline(d) }}</section>
+</div>
+<p class="ps">{{ d.site.personal }}</p>
+<script type="application/ld+json">{{ { "@context": "https://schema.org", "@type": "Person", "name": "Nicolas Dahan", "url": d.site.url, "image": d.site.url + "/og.png", "jobTitle": "PhD candidate", "affiliation": [{ "@type": "ResearchOrganization", "name": "Inria Paris", "department": "ALMAnaCH" }, { "@type": "CollegeOrUniversity", "name": "Sorbonne Université", "department": "ISIR, MLIA" }], "sameAs": d.sameAs } | jsonld | safe }}</script>

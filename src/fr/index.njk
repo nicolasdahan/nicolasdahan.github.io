@@ -1,0 +1,11 @@
+---
+layout: base.njk
+title: Nicolas Dahan
+lang: fr
+eleventyExcludeFromCollections: true
+---
+{%- from "macros.njk" import links, photo %}
+{%- set d = data %}{% set f = d.fr %}
+<div class="hr{% if not d.photo %} hr0{% endif %}">{{ photo(d) }}<div><h1>Nicolas Dahan</h1><p>{{ f.bio_affiliation | frnbsp | safe }} {{ f.bio_before_phd | frnbsp }}</p><p class="st">{{ f.status | frnbsp }}</p>{{ links(d) }}</div></div>
+<section class="sec"><h2>Résumé de thèse</h2><p class="tfr">{{ d.site.thesis.title_fr }}</p><div class="txt">{% for x in f.abstract %}<p>{{ x | frnbsp }}</p>{% endfor %}</div></section>
+<p class="ps">{{ f.personal | frnbsp }}</p>

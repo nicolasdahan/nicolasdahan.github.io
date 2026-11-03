@@ -1,0 +1,8 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nicolas Dahan, news</title><link>{{ data.site.url }}/</link><description>News from Nicolas Dahan.</description><language>en</language><atom:link href="{{ data.site.url }}/feed.xml" rel="self" type="application/rss+xml"/>
+{%- for n in data.news %}<item><title>{{ ((n.short + ' ') if n.short else '') + n.text | xmlesc }}</title><link>{{ data.site.url }}/{% if n.key %}publications/#{{ n.key }}{% else %}news/{% endif %}</link><guid isPermaLink="false">{{ data.site.url }}/news/{{ n.date }}-{{ n.type }}</guid><pubDate>{{ n.date | rfc822 }}</pubDate></item>{% endfor %}
+</channel></rss>

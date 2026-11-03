@@ -1,0 +1,50 @@
+{% macro authors(p) -%}
+{%- for a in p.authorsMarked %}{% if a.me %}<strong>{{ a.name }}</strong>{% else %}{{ a.name }}{% endif %}{% if not loop.last %}, {% endif %}{% endfor -%}
+{%- endmacro %}
+
+{% macro entry(p, tag, example) %}
+<article class="it" id="{{ p.key }}" data-first="{{ 'yes' if p.firstAuthor else 'no' }}" data-theme="{{ p.theme }}">
+<p class="v">{{ p.venue }}{% if p.showStatus %}, {{ p.status }}{% endif %}</p>
+<{{ tag or 'h3' }} class="pt"><a href="{{ p.url }}">{{ p.title }}</a></{{ tag or 'h3' }}>
+<p class="au">{{ authors(p) }}</p>
+{% if p.tldr %}<p>{{ p.tldr }}</p>{% endif %}
+<div class="wl">
+{%- for l in [['anthology','Paper'],['pdf','PDF'],['arxiv','arXiv'],['hal','HAL'],['code','Code'],['data','Data'],['terminology','Terminology'],['poster','Poster'],['slides','Slides'],['video','Video']] %}{% if p.links[l[0]] %}<a href="{{ p.links[l[0]] }}">{{ l[1] }}</a>{% endif %}{% endfor -%}
+{%- if p.example %}<button type="button" class="tg tgx" aria-expanded="false" aria-controls="{{ p.example }}-example">Example</button>{% endif -%}
+{%- if p.abstract %}<button type="button" class="tg" aria-expanded="false" aria-controls="{{ p.key }}-abstract">Abstract</button>{% endif -%}
+<button type="button" class="tg" aria-expanded="false" aria-controls="{{ p.key }}-bibtex">BibTeX</button>
+</div>
+<div class="ops">
+{%- if p.example %}<div class="opn exo" id="{{ p.example }}-example"><p class="oh">Example</p><div class="ex-wrap">{% include "example.njk" %}</div></div>{% endif -%}
+{%- if p.abstract %}<div class="opn abo" id="{{ p.key }}-abstract"><p class="oh">Abstract</p><p>{{ p.abstract }}</p></div>{% endif -%}
+<div class="opn bio" id="{{ p.key }}-bibtex"><p class="oh">BibTeX</p><pre>{{ p.bibtex }}</pre><button type="button" class="cp" data-copy>Copy BibTeX</button></div>
+</div>
+</article>
+{% endmacro %}
+
+{% macro links(d, cvUrl) %}
+<div class="pls">
+{%- for l in d.site.profiles %}<a class="pl" href="{{ l.url }}"{% if l.me %} rel="me"{% endif %}>{{ l.icon | icon(l.key) | safe }}<span>{{ l.label }}</span></a>{% endfor -%}
+{%- if d.site.orcid %}<a class="pl" href="{{ d.site.orcid }}" rel="me"><span>ORCID</span></a>{% endif -%}
+<a class="pl" href="/cv/">{{ 'file-earmark-text' | icon('cv') | safe }}<span>CV</span></a>
+<a class="pl eml" data-a="{{ d.site.emailA }}" data-b="{{ d.site.emailB }}">{{ 'envelope' | icon('mail') | safe }}<span class="ew">nicolas dot dahan at inria dot fr</span><span class="ej">Email</span></a>
+</div>
+{% endmacro %}
+
+{% macro photo(d, sizes) %}
+{% if d.photo %}<picture class="ph"><source type="image/avif" srcset="/assets/generated/photo/portrait-160.avif 160w, /assets/generated/photo/portrait-320.avif 320w" sizes="{{ sizes or '(max-width:760px) 8.5rem, 10rem' }}"><source type="image/webp" srcset="/assets/generated/photo/portrait-160.webp 160w, /assets/generated/photo/portrait-320.webp 320w" sizes="{{ sizes or '(max-width:760px) 8.5rem, 10rem' }}"><img class="pho" src="/assets/generated/photo/portrait-320.webp" width="320" height="400" alt="{{ d.site.photo.alt }}" fetchpriority="high"></picture>{% endif %}
+{% endmacro %}
+
+{% macro timeline(d, pubsPage) %}
+<ul class="lg" aria-label="Legend">{% for k in [['research','Research'],['industry','Industry'],['education','Education']] %}<li class="k-{{ k[0] }}"><span class="sw" aria-hidden="true"></span>{{ k[1] }}</li>{% endfor %}</ul>
+<ol class="tl tl-block">
+{%- if d.site.thesis.date and not d.site.defended %}<li class="tli k-research"><div class="tcx"><p class="dd">{{ d.site.thesis.date }}</p><h3>Thesis defence</h3><p class="tx"><i>{{ d.site.thesis.title_en }}</i></p><p class="kw">Research</p></div></li>{% endif -%}
+{%- for r in d.cv.research %}<li class="tli k-research"><div class="tcx"><p class="dd">{{ r.dates }}</p><h3>{{ r.title.split(',')[0] }}</h3><p class="to">{{ r.where }}</p><p class="tx">Supervised by <a href="https://rbawden.github.io/">Rachel Bawden</a> and <a href="https://fyvo.github.io/">François Yvon</a>. ANR project MaTOS.</p><p class="kw">Research</p></div></li>{% endfor -%}
+{%- for r in d.cv.industry %}<li class="tli k-industry"><div class="tcx"><p class="dd">{{ r.dates }}</p><h3>{{ r.title }}</h3><p class="to">{{ r.org }}</p><p class="tx">{{ r.short }}</p><p class="kw">Industry</p></div></li>{% endfor -%}
+{%- for r in d.cv.education %}<li class="tli k-education"><div class="tcx"><p class="dd">{{ r.dates }}</p><h3>{{ r.title }}</h3><p class="to">{{ r.org }}</p>{% if r.detail %}<p class="tx">{{ r.detail }}</p>{% endif %}<p class="kw">Education</p></div></li>{% endfor -%}
+</ol>
+{% endmacro %}
+
+{% macro newsList(d, n, base) %}
+<ul class="nw">{% for x in d.news %}{% if not n or loop.index <= n %}<li><b>{{ x.date | shortdate }}</b><span>{% if x.key %}<a href="{{ base }}#{{ x.key }}">{{ x.short }}</a> {% endif %}{{ x.text }}</span></li>{% endif %}{% endfor %}</ul>
+{% endmacro %}

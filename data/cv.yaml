@@ -1,0 +1,34 @@
+headline: PhD candidate in Natural Language Processing, Inria Paris and Sorbonne Université
+place: Paris, France
+summary: >-
+  NLP researcher working on the evaluation of machine translation and LLM outputs beyond the sentence: document-level
+  metrics, meta-evaluation, terminology, and LLM-as-a-judge.
+research:
+  - title: PhD in Computer Science, Sorbonne Université
+    dates: October 2023 to now
+    where: Inria Paris (ALMAnaCH team) and ISIR at Sorbonne Université (MLIA team)
+    detail: Supervised by Rachel Bawden and François Yvon. ANR project MaTOS.
+    items:
+      - { key: dahan-2026-metadoceval, text: "Built MetaDocEval, a contrastive test set of discourse phenomena (English to French, Spanish and German). None of eight widely used metrics captures its controlled errors of coherence and cohesion." }
+      - { key: dahan-2026-variation, text: "Introduced a cross-term variation measure. Adding the glossary terms raises accuracy and consistency but, on the articles, suppresses the variation the reference displays." }
+      - { key: dahan-2026-termjudge, text: "Designed TermJudge, an interpretable document-level terminology metric. On BioMQM-Terms, it ranks first ahead of ten comparison metrics. Open source." }
+industry:
+  - { title: Machine Learning Engineer, org: Voodoo, dates: "2023", short: "Deep-learning model predicting player lifetime value, from data preprocessing to production monitoring.", detail: "Designed, deployed and monitored the deep-learning model that predicts player lifetime value (LTV) for Autobid, Voodoo’s automated bidding product. Covered the full pipeline, from data preprocessing and feature selection to architecture design, hyper-parameter tuning and production monitoring." }
+  - { title: Research Scientist Intern, org: Criteo AI Lab, dates: "2021 to 2022", role: "NLP and multimodal learning", short: "Multimodal ad-safety classifier that replaced the vision-only model in production.", detail: "Built a multimodal (text and image) ad-safety classifier for the Ad Safety team. It outperformed the vision-only model used in production and replaced it." }
+  - { title: Research Scientist Intern, org: LightOn, dates: "2020", role: NLP, short: "Optical processing units for transfer learning in NLP.", detail: "Explored optical processing units (OPUs) for transfer learning in NLP: optical random projections of pre-trained embeddings, followed by a linear classifier." }
+education:
+  - { title: "MSc in Applied Mathematics, second year", org: Sorbonne Université, dates: "2019 to 2020" }
+  - { title: Engineering degree, org: ENSAE Paris, dates: "2018 to 2022", detail: "Grande École programme, MSc. Double degree with ESSEC Business School, Master in Management." }
+  - { title: BSc in Mathematics and Economics, org: Université Paris 1 Panthéon-Sorbonne, dates: "2014 to 2018", detail: "First Class Honours. Followed by the first year of an MSc in Applied Mathematics." }
+languages: French (native), English (full professional proficiency)
+bio_50: >-
+  Nicolas Dahan is a PhD candidate in machine translation at Inria Paris (ALMAnaCH team) and ISIR, Sorbonne Université
+  (MLIA team), supervised by Rachel Bawden and François Yvon. The thesis tests the metrics used to evaluate translated
+  scientific documents and introduces TermJudge, a document-level terminology metric. Currently on the job market.
+bio_100: >-
+  Nicolas Dahan is a PhD candidate in machine translation at Inria Paris (ALMAnaCH team) and ISIR, Sorbonne Université
+  (MLIA team), supervised by Rachel Bawden and François Yvon. The thesis, on the automatic evaluation of the machine
+  translation of scientific documents, tests the metrics in use with MetaDocEval and introduces TermJudge, a
+  document-level terminology metric that judges each mismatch with an LLM judge instead of counting it. These papers
+  appeared at EAMT 2026 and at WMT, at EMNLP 2026. Before the PhD: research internships at Criteo AI Lab and LightOn,
+  then machine learning engineering at Voodoo. Currently on the job market.

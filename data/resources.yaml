@@ -1,0 +1,23 @@
+- name: TermJudge
+  what: A document-level terminology metric for machine translation.
+  use: Given a bilingual glossary and aligned term occurrences, it scores a translated document. A match with the expected translation is settled without an LLM call, and each mismatch goes to an LLM judge.
+  repo: https://github.com/nicolasdahan/termjudge
+  license: MIT
+  cite: dahan-2026-termjudge
+- name: BioMQM-Terms
+  what: A terminology evaluation resource for English-to-French machine translation in the biomedical domain.
+  use: It adds to the English-French part of the bio-MQM corpus a glossary of 710 concepts and the aligned term occurrences of its ten translations, for 50 documents, to test a terminology metric against human MQM scores.
+  repo: https://github.com/nicolasdahan/termjudge/tree/main/data/biomqm
+  license: Derived from the bio-MQM corpus of Zouhar et al. (2024), Apache License 2.0. The glossary uses labels from the MeSH thesaurus. The datasheet gives the terms for each part.
+  cite: dahan-2026-termjudge
+- name: MetaDocEval test set
+  what: A contrastive test set of document-level errors for evaluating machine translation metrics.
+  use: It pairs system outputs with versions degraded by nine types of perturbation, for English to French, Spanish and German. A metric sensitive to a perturbation should score the original higher.
+  repo: https://github.com/nicolasdahan/metadoceval-testset
+  license: MIT. The source, reference and system-output texts come from WMT24++, which the repository asks to cite as well.
+  cite: dahan-2026-metadoceval
+- name: Concordancer
+  what: A parse-based term concordancer.
+  use: It collects the occurrences of terms within a set of parsed sentences and writes them as text, HTML or JSON, keeping the sentences that best illustrate each term variant.
+  repo: https://gitlab.inria.fr/almanach/concordancer
+  license: MIT

@@ -1,0 +1,7 @@
+---
+permalink: /publications.bib
+eleventyExcludeFromCollections: true
+---
+{% for p in data.pubs %}{{ p.bibtex | safe }}
+
+{% endfor %}

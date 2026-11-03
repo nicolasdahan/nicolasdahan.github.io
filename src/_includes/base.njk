@@ -1,0 +1,48 @@
+<!doctype html>
+{%- set d = data %}
+{%- set pageLang = lang or 'en' %}
+<html lang="{{ pageLang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description or d.site.description }}">
+<link rel="canonical" href="{{ d.site.url }}{{ page.url }}">
+{%- if d.site.frOn and (page.url == '/' or page.url == '/fr/') %}
+<link rel="alternate" hreflang="en" href="{{ d.site.url }}/">
+<link rel="alternate" hreflang="fr" href="{{ d.site.url }}/fr/">
+{%- endif %}
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description or d.site.description }}">
+<meta property="og:type" content="{{ ogType or 'website' }}">
+<meta property="og:url" content="{{ d.site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ d.site.url }}/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nicolas Dahan, machine translation evaluation">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Nicolas Dahan, news" href="/feed.xml">
+<link rel="preload" href="/assets/fonts/be-vietnam-pro-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/be-vietnam-pro-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/be-vietnam-pro-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>{{ d.css | safe }}</style>
+<script>document.documentElement.classList.add("js")</script>
+{%- block head %}{% endblock %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="tb"><div class="wrap"><a class="br" href="/">Nicolas Dahan</a><nav class="nav" aria-label="Main">{% for it in [['Thesis','/thesis/'],['Resources','/resources/'],['Talks','/talks/'],['CV','/cv/']] %}<a href="{{ it[1] }}"{% if page.url == it[1] %} aria-current="page"{% endif %}>{{ it[0] }}</a>{% endfor %}{% if d.site.frOn %}{% if pageLang == 'fr' %}<a href="/" lang="en" hreflang="en">English</a>{% else %}<a href="/fr/" lang="fr" hreflang="fr">Français</a>{% endif %}{% endif %}</nav></div></header>
+<div class="wrap">
+<main id="main" tabindex="-1">
+{% block main %}{{ content | safe }}{% endblock %}
+</main>
+<footer class="ft">
+{%- if d.site.updated %}<p>Last updated <time datetime="{{ d.site.updated }}">{{ d.site.updated | longdate }}</time>.</p>{% endif %}
+<p><a class="eml" data-a="{{ d.site.emailA }}" data-b="{{ d.site.emailB }}"><span class="ew">nicolas dot dahan at inria dot fr</span><span class="ej">Email</span></a> <a href="/feed.xml">RSS</a></p>
+<p>Set in Be Vietnam Pro by the Be Vietnam Pro Project Authors, and Atkinson Hyperlegible Mono by the Braille Institute.</p>
+</footer>
+</div>
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

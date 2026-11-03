@@ -1,0 +1,13 @@
+---
+layout: base.njk
+title: Publications, Nicolas Dahan
+description: Publications of Nicolas Dahan on the automatic evaluation of machine translation, with code, data and BibTeX.
+permalink: /publications/
+---
+{%- from "macros.njk" import entry %}
+{%- set d = data %}
+<h1 class="page">Publications</h1>
+<p class="more"><a href="/publications.bib" download>Download all as .bib</a></p>
+<div class="flt" role="group" aria-label="Filter publications"><button type="button" class="fb" data-f="all" aria-pressed="true">All</button><button type="button" class="fb" data-f="first" aria-pressed="false">First author</button>{% for t in d.themes %}<button type="button" class="fb" data-f="{{ t }}" aria-pressed="false">{{ t | capitalize }}</button>{% endfor %}</div>
+{% for y in d.years %}<section class="yr"><h2>{{ y }}</h2>{% for p in d.pubs %}{% if p.year == y %}{{ entry(p, 'h3') }}{% endif %}{% endfor %}</section>{% endfor %}
+<script type="application/ld+json">{{ d.scholarly | jsonld | safe }}</script>

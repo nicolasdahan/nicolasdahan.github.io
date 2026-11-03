@@ -1,0 +1,10 @@
+---
+layout: base.njk
+title: Talks, Nicolas Dahan
+description: Talks and posters by Nicolas Dahan.
+permalink: /talks/
+---
+{%- set d = data %}
+<h1 class="page">Talks</h1>
+<ul class="tk">{% for t in d.talks %}<li><b>{{ t.date | shortdate }}</b><div><p class="pt">{{ t.title }}</p><p class="au">{{ t.venue }}, {{ t.place }}. {{ t.type }}. {{ t.note }}</p><div class="wl">{% if t.key %}<a href="/publications/#{{ t.key }}">Paper</a>{% endif %}{% if t.poster %}<a href="{{ t.poster }}">Poster</a>{% endif %}{% if t.slides %}<a href="{{ t.slides }}">Slides</a>{% endif %}{% if t.video %}<a href="{{ t.video }}">Video</a>{% endif %}</div></div></li>{% endfor %}</ul>
+<section class="sec"><h2>Posters</h2><ul class="gal">{% for t in d.talks %}{% if t.poster %}<li><a href="{{ t.poster }}"><img src="{{ t.thumb }}" width="{{ t.width }}" height="{{ t.height }}" alt="{{ t.alt }}"{% if not loop.first %} loading="lazy"{% endif %}></a><p class="au">{{ t.venue }}</p></li>{% endif %}{% endfor %}</ul></section>

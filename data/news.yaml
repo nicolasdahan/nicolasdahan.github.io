@@ -1,0 +1,5 @@
+- { date: "2026-10-28", type: poster, key: dahan-2026-termjudge, text: "at EMNLP 2026 in Budapest: WMT poster 159 and boaster talk." }
+- { date: "2026-08", type: paper, key: dahan-2026-variation, text: "at AMTA 2026 in Québec City." }
+- { date: "2026-06", type: paper, key: dahan-2026-metadoceval, text: "at EAMT 2026 in Tilburg." }
+- { date: "2025-06", type: paper, key: bawden-2025-matos, text: "at MT Summit XX in Geneva." }
+- { date: "2024-10", type: paper, key: dahan-2024-survey, text: "technical report." }

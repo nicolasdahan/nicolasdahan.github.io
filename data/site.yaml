@@ -1,0 +1,49 @@
+url: https://nicolasdahan.github.io
+name: Nicolas Dahan
+lang: en
+email_user: nicolas.dahan
+email_domain: inria.fr
+
+defended: false
+status: On the job market.
+
+bio_affiliation: >-
+  attached to two laboratories, Inria Paris (<a href="https://almanach.inria.fr/index-en.html">ALMAnaCH team</a>)
+  and ISIR at Sorbonne Université (<a href="https://www.isir.upmc.fr/equipes/mlia/">MLIA team</a>), and supervised by
+  <a href="https://rbawden.github.io/">Rachel Bawden</a> and <a href="https://fyvo.github.io/">François Yvon</a>.
+bio_before_phd: Before the PhD, I was a research intern at Criteo AI Lab and LightOn, then a machine learning engineer at Voodoo.
+personal: "When I’m not evaluating translations, I do design and screen print on textiles: T-shirts and whatever else will take the ink."
+description: PhD candidate in machine translation at Inria Paris and Sorbonne Université. Automatic evaluation of the machine translation of scientific documents.
+
+photo:
+  focal: 50% 22%
+  alt: Portrait of Nicolas Dahan, in a white T-shirt, smiling, against a light wall.
+
+profiles:
+  - { key: scholar, icon: googlescholar, label: Google Scholar, url: "https://scholar.google.com/citations?user=PCb0H0kAAAAJ" }
+  - { key: acl, icon: acl, label: ACL Anthology, url: "https://aclanthology.org/people/nicolas-dahan/unverified/" }
+  - { key: github, icon: github, label: GitHub, url: "https://github.com/nicolasdahan", me: true }
+  - { key: bluesky, icon: bluesky, label: Bluesky, url: "https://bsky.app/profile/nicolasdahan.bsky.social", me: true }
+  - { key: linkedin, icon: linkedin, label: LinkedIn, url: "https://www.linkedin.com/in/nicolas-dahan", me: true }
+orcid: ""
+
+thesis:
+  title_en: Automatic Evaluation of the Machine Translation of Scientific Documents
+  title_fr: Évaluation automatique de la traduction automatique de documents scientifiques
+  date: ""
+  place: ""
+  time: ""
+  pdf_url: ""
+  discipline: Computer Science
+  university: Sorbonne Université
+  doctoral_school: École Doctorale Informatique, Télécommunications et Électronique de Paris (ED 130, EDITE)
+  funding: ANR MaTOS (ANR-22-CE23-0033), Machine Translation for Open Science
+  supervisors:
+    - { name: Rachel Bawden, title: "Chargée de recherche, Inria", url: "https://rbawden.github.io/" }
+    - { name: François Yvon, title: "Directeur de recherche, CNRS", url: "https://fyvo.github.io/" }
+  contributions:
+    - { key: dahan-2026-metadoceval, text: "tests eight widely used metrics on controlled errors of coherence and cohesion." }
+    - { key: dahan-2026-variation, text: "studies what count-based evaluation captures on scientific translations." }
+    - { key: dahan-2026-termjudge, text: "judges, with a bilingual glossary, whether each translated term is acceptable in its document." }
+
+fr_validated: false

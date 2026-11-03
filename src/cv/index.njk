@@ -1,0 +1,19 @@
+---
+layout: base.njk
+title: CV, Nicolas Dahan
+description: Curriculum vitae of Nicolas Dahan, PhD candidate in natural language processing.
+permalink: /cv/
+---
+{%- from "macros.njk" import links, authors %}
+{%- set d = data %}{% set c = d.cv %}
+<h1 class="page">Nicolas Dahan</h1>
+<p class="st cvh">{{ c.headline }}</p>
+<p class="au">{{ c.place }}, nicolas dot dahan at inria dot fr</p>
+<p class="more noprint"><a href="/cv/nicolas-dahan-cv.pdf">Download as PDF</a></p>
+<p class="cvs">{{ c.summary }}</p>
+<section class="sec"><h2>PhD research</h2>{% for r in c.research %}<div class="ce"><div class="ch"><h3>{{ r.title }}</h3><span>{{ r.dates }}</span></div><p class="au">{{ r.where }}. {{ r.detail }}</p><p class="au">Thesis: <i>{{ d.site.thesis.title_en }}</i></p><ul class="cl">{% for i in r.items %}{% set p = d.pubs | pubBy(i.key) %}<li>{{ i.text }} <a href="/publications/#{{ p.key }}">{{ p.venue }}</a></li>{% endfor %}</ul></div>{% endfor %}</section>
+<section class="sec"><h2>Publications</h2><ol class="cl cp2">{% for p in d.pubs %}<li><a href="{{ p.url }}">{{ p.title }}</a>. {{ authors(p) | safe }}. {{ p.venue }}.</li>{% endfor %}</ol></section>
+<section class="sec"><h2>Industry experience</h2>{% for r in c.industry %}<div class="ce"><div class="ch"><h3>{{ r.title }}, {{ r.org }}</h3><span>{{ r.dates }}</span></div><p>{{ r.detail }}</p></div>{% endfor %}</section>
+<section class="sec"><h2>Education</h2>{% for r in c.education %}<div class="ce"><div class="ch"><h3>{{ r.org }}, {{ r.title }}</h3><span>{{ r.dates }}</span></div>{% if r.detail %}<p>{{ r.detail }}</p>{% endif %}</div>{% endfor %}</section>
+<section class="sec"><h2>Languages</h2><p>{{ c.languages }}</p></section>
+<section class="sec noprint" id="bio"><h2>Bio for organisers</h2><div class="bb"><h3>50 words</h3><p>{{ c.bio_50 }}</p><button type="button" class="cp" data-copy>Copy</button></div><div class="bb"><h3>100 words</h3><p>{{ c.bio_100 }}</p><button type="button" class="cp" data-copy>Copy</button></div></section>

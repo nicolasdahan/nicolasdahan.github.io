@@ -1,0 +1,167 @@
+@inproceedings{dahan-2026-termjudge,
+    title = "{T}erm{J}udge: A Document-Level Metric Judging, Not Counting, Terminology in Machine Translation Evaluation",
+    author = "Dahan, Nicolas  and
+      Yvon, Fran{\c{c}}ois  and
+      Bawden, Rachel",
+    editor = "Haddow, Barry  and
+      Kocmi, Tom  and
+      Koehn, Philipp  and
+      Monz, Christof",
+    booktitle = "Proceedings of the Eleventh Conference on Machine Translation",
+    month = oct,
+    year = "2026",
+    address = "Budapest, Hungary",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.wmt-main.6/",
+    doi = "10.18653/2026.wmt-main.6",
+    pages = "82--115",
+    ISBN = "979-8-89176-474-3",
+    venue_short = {WMT at EMNLP 2026},
+    status = {published},
+    code = {https://github.com/nicolasdahan/termjudge},
+    poster = {/talks/wmt-2026-termjudge-poster.webp},
+    short = {TermJudge},
+    theme = {terminology},
+    selected = {true},
+    example = {termjudge},
+    tldr = {On BioMQM-Terms, TermJudge ranks first ahead of ten comparison metrics.},
+    abstract = {Existing automatic metrics for evaluating terminological use in machine translation (MT) penalise any divergence from a fixed reference, conflating translation errors with the valid terminological variation that human translators routinely produce. We introduce TermJudge, a document-level terminology metric that assigns an interpretable verdict to every term occurrence: glossary-conforming occurrences are settled deterministically, while divergences are assessed under a two-step LLM-as-judge procedure using the full document context: the first detects and labels terminology errors; the second sorts valid document-level variations from inconsistencies. Validated against expert error annotations and document-level human MQM scores, TermJudge ranks first in both system- and segment-level meta-evaluation, ahead of glossary-conformity and quality-estimation baselines. When applied to eight systems translating academic documents, under two prompting conditions, we observe that glossary injection improves terminology translation in all paired comparisons, by removing genuine errors rather than valid variation. TermJudge is released as open-source code.},
+}
+
+@inproceedings{dahan-2026-variation,
+    title = "Improving Term Evaluation in Machine Translation: Variation Matters",
+    author = "Dahan, Nicolas  and
+      Peng, Ziqian  and
+      Yvon, Fran{\c{c}}ois  and
+      Bawden, Rachel",
+    editor = "Briakou, Eleftheria  and
+      Gwinnup, Jeremy  and
+      Goel, Shivali",
+    booktitle = "Proceedings of the 17th Conference of the Association for Machine Translation in the {A}mericas (Volume 1: Research Track)",
+    month = aug,
+    year = "2026",
+    address = "Qu{\'e}bec City, Canada",
+    publisher = "Association for Machine Translation in the Americas",
+    url = "https://aclanthology.org/2026.amta-research.7/",
+    pages = "101--134",
+    venue_short = {AMTA 2026},
+    status = {published},
+    short = {Variation Matters},
+    theme = {terminology},
+    selected = {true},
+    tldr = {Adding the glossary terms raises accuracy and consistency but, on the articles, suppresses the variation the reference displays.},
+    abstract = {Terminology evaluation in machine translation (MT) usually assumes a single correct target form per source term, yet human translators routinely introduce variation that current metrics penalize as inconsistency. We examine how to account for this variation in document-level MT evaluation in English–French scientific translation, combining glossary-based accuracy, translation consistency, and a new cross-term variation (CTV) diagnostic measure that captures whether variation relationships are preserved across languages. On two parallel corpora translated by four MT systems, we find that (1) MT systems generate less target-side variation than human translators; (2) transfer patterns strongly depend on the variation type; (3) consistency rankings vary with the choice of metric; and (4) constraining MT with a glossary improves accuracy and consistency but degrades CTV by suppressing valid variation. We argue for variation-aware evaluation that conditions consistency penalties on whether target-side variation mirrors source-side variation.},
+}
+
+@inproceedings{dahan-2026-metadoceval,
+    title = "{M}eta{D}oc{E}val: A Contrastive Framework for Evaluating Machine Translation Metrics at the Document-Level",
+    author = "Dahan, Nicolas  and
+      Bawden, Rachel  and
+      Yvon, Fran{\c{c}}ois",
+    editor = "Shterionov, Dimitar  and
+      Vanmassenhove, Eva  and
+      De Sisto, Mirella  and
+      Blain, Fred  and
+      Pourmostafa Roshan Sharami, Javad  and
+      Lepp, Lisa  and
+      Manna, Chiara  and
+      Rescigno, Argentina Anna  and
+      Karakanta, Alina  and
+      Rigouts Terryn, Ayla  and
+      Lardelli, Manuel  and
+      Resende, Natalia  and
+      Murgolo, Elena  and
+      Hackenbuchner, Jani{\c{c}}a  and
+      Zaretskaya, Anna  and
+      Espl{\`a}-Gomis, Miquel  and
+      Etchegoyhen, Thierry  and
+      Gromann, Dagmar  and
+      Bawden, Rachel  and
+      Haddow, Barry  and
+      Szoc, Sara  and
+      Forcada, Mikel  and
+      Moniz, Helena",
+    booktitle = "Proceedings of the 26th Annual Conference of the {E}uropean Association for Machine Translation (Volume 1)",
+    month = jun,
+    year = "2026",
+    address = "Tilburg, The Netherlands",
+    publisher = "European Association for Machine Translation",
+    url = "https://aclanthology.org/2026.eamt-1.19/",
+    pages = "268--303",
+    ISBN = "9789403901411",
+    venue_short = {EAMT 2026},
+    status = {published},
+    code = {https://github.com/nicolasdahan/metadoceval-testset},
+    short = {MetaDocEval},
+    theme = {document-level},
+    selected = {true},
+    tldr = {None of eight widely used metrics captures controlled errors of coherence and cohesion.},
+    abstract = {Recent advances in neural machine translation (MT) have spurred increased interest in evaluating translations beyond the sentence level, making it possible to assess discourse-level phenomena related to coherence and consistency. While existing metrics can be applied to multi-sentence spans, it remains unclear whether their scores truly capture document-level quality. We introduce MetaDocEval, an automatic contrastive test set for evaluating MT metrics across three language pairs (en–fr, en–es, en–de) when applied at the document-level. It targets a range of discourse-level phenomena and potential problems linked to translation at the document level. To evaluate how metrics behave as a function of context size, we apply them under a sliding-window protocol, varying the input from single sentences up to full documents. Our experiments show that no current metric genuinely captures document-level coherence: reference-based metrics overfit lexical overlap, reference+source metrics gain little from added context, reference-free encoders show brief context sensitivity before degrading on longer spans, and LLM-based scorers collapse beyond short inputs. A key finding is that reference access can be actively harmful for detecting discourse-level errors. Using short windows (≈ 3 sentences) offers the best trade-off between discourse error detection and score dilution.},
+}
+
+@inproceedings{bawden-2025-matos,
+    title = "{M}a{TOS}: Machine Translation for Open Science",
+    author = {Bawden, Rachel  and
+      B{\'e}nard, Maud  and
+      de la Clergerie, {\'E}ric  and
+      C{\'a}rcamo, Jos{\'e} Cornejo  and
+      Dahan, Nicolas  and
+      Delorme, Manon  and
+      Huguin, Mathilde  and
+      K{\"u}bler, Natalie  and
+      Lerner, Paul  and
+      Mestivier, Alexandra  and
+      Minder, Joachim  and
+      Nomin{\'e}, Jean-Fran{\c{c}}ois  and
+      Peng, Ziqian  and
+      Romary, Laurent  and
+      Tsolakis, Panagiotis  and
+      Zhu, Lichao  and
+      Yvon, Fran{\c{c}}ois},
+    editor = {Bouillon, Pierrette  and
+      Gerlach, Johanna  and
+      Girletti, Sabrina  and
+      Volkart, Lise  and
+      Rubino, Raphael  and
+      Sennrich, Rico  and
+      L{\"a}ubli, Samuel  and
+      Volk, Martin  and
+      Espl{\`a}-Gomis, Miquel  and
+      Vandeghinste, Vincent  and
+      Moniz, Helena  and
+      Szoc, Sara},
+    booktitle = "Proceedings of Machine Translation Summit {XX}: Volume 2",
+    month = jun,
+    year = "2025",
+    address = "Geneva, Switzerland",
+    publisher = "European Association for Machine Translation",
+    url = "https://aclanthology.org/2025.mtsummit-2.22/",
+    pages = "103--104",
+    ISBN = "978-2-9701897-1-8",
+    venue_short = {MT Summit 2025},
+    status = {published},
+    short = {MaTOS},
+    theme = {open science},
+    selected = {true},
+    tldr = {A short presentation of MaTOS, a project on the automatic translation of scholarly documents.},
+    abstract = {This paper is a short presentation of MaTOS, a project focusing on the automatic translation of scholarly documents. Its main aims are threefold: (a) to develop resources (term lists and corpora) for high-quality machine translation; (b) to study methods for translating complete, structured documents in a cohesive and consistent manner; (c) to propose novel metrics to evaluate machine translation in technical domains. Publications and resources are available on the project web site: https://anr-matos.gihub.io.},
+}
+
+@techreport{dahan-2024-survey,
+  TITLE = {{Survey of Automatic Metrics for Evaluating Machine Translation at the Document Level}},
+  AUTHOR = {Dahan, Nicolas and Bawden, Rachel and Yvon, Fran{\c c}ois},
+  URL = {https://hal.science/hal-04798759},
+  INSTITUTION = {{Inria Paris, Sorbonne Universit{\'e} ; Sorbonne Universite ; Inria Paris}},
+  YEAR = {2024},
+  MONTH = Oct,
+  HAL_ID = {hal-04798759},
+  HAL_VERSION = {v1},
+    venue_short = {Technical report, 2024},
+    status = {report},
+    hal = {https://hal.science/hal-04798759},
+    short = {Survey},
+    theme = {document-level},
+    selected = {true},
+    tldr = {A survey of document-level automatic metrics for machine translation, with the linguistic phenomena, human evaluation protocols and test sets around them.},
+    abstract = {This report presents a survey of document-level automatic metrics for machine translation (MT), addressing the need for sophisticated evaluation methods that extend beyond sentence-level assessments. Traditional metrics, which evaluate translations on a sentence-by-sentence basis, often fail to capture the complexities of discourse phenomena, leading to gaps in assessing coherence, cohesion, and cross-sentence dependencies. The report starts by introducing the terminology and notation relevant to document-level MT evaluation. It then describes the linguistic phenomena that are crucial at the document level, related for example to lexical and grammatical cohesion, and overall text coherence, which pose significant challenges for MT systems. Following this, we explore human evaluation protocols targeting document-level translation, discussing the methodologies used to judge translation quality in a more holistic manner. Studying human judgments is necessary, as automatic metrics often aim at reproducing them. We also examine the various test sets that have been developed to support the evaluation of document-level MT. The core of the survey focuses on automatic evaluation metrics designed for document-level translation. These metrics aim to provide a more accurate representation of translation quality by considering the broader context and long-range dependencies within a text, offering a more comprehensive assessment than sentence-level metrics. The report concludes with an overview of the current trends in document-level MT evaluation, summarizing key challenges and identifying areas for future research. It emphasizes the need for the development of context-aware metrics and the importance of creating standardized, document-level test sets to advance MT evaluation.},
+}

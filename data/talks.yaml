@@ -1,0 +1,12 @@
+- date: "2026-10-28"
+  place: Budapest
+  venue: WMT at EMNLP 2026
+  type: Poster and boaster talk
+  title: "TermJudge: A Document-Level Metric Judging, Not Counting, Terminology in Machine Translation Evaluation"
+  note: Poster 159.
+  key: dahan-2026-termjudge
+  poster: /talks/wmt-2026-termjudge-poster.webp
+  thumb: /talks/wmt-2026-termjudge-poster-thumb.webp
+  width: 420
+  height: 594
+  alt: "Poster of TermJudge at WMT 2026: why a term that differs from the expected translation is not always an error, how the metric judges each mismatch, and the results on STEP and BioMQM-Terms."

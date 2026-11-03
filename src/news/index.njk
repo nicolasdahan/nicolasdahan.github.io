@@ -1,0 +1,10 @@
+---
+layout: base.njk
+title: News, Nicolas Dahan
+description: "News from Nicolas Dahan: papers, posters and talks."
+permalink: /news/
+---
+{%- from "macros.njk" import newsList %}
+<h1 class="page">News</h1>
+<p class="more"><a href="/feed.xml">RSS</a></p>
+{{ newsList(data, 0, '/publications/') }}
