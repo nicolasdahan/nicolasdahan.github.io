@@ -30,5 +30,5 @@ bio_100: >-
   (MLIA team), supervised by Rachel Bawden and François Yvon. The thesis, on the automatic evaluation of the machine
   translation of scientific documents, tests the metrics in use with MetaDocEval and introduces TermJudge, a
   document-level terminology metric that judges each mismatch with an LLM judge instead of counting it. These papers
-  appeared at EAMT 2026 and at WMT, at EMNLP 2026. Before the PhD: research internships at Criteo AI Lab and LightOn,
+  appeared at EAMT 2026 (Tilburg) and at WMT 2026 (Budapest). Before the PhD: research internships at Criteo AI Lab and LightOn,
   then machine learning engineering at Voodoo. Currently on the job market.
